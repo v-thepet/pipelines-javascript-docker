@@ -13,6 +13,9 @@ parameters:
   displayName: Run Tests?
   type: boolean
   default: false
+- name: doThing
+  default: true
+  type: boolean
 
 variables:
 - name: testEmpty
@@ -29,15 +32,8 @@ stages:
       - script: echo Hello Stage A!
 - stage: B
   jobs:
-  - job: AB1
+  - job: B1
     steps:
-    - bash: |
-        echo "This is job AB1."
-        echo "##vso[task.setvariable variable=doThing;isOutput=true]Yes" #set variable doThing to Yes
-      name: DetermineResult
-  - job: BB1
-    dependsOn: AB1
-    condition: eq(dependencies.AB1.outputs['DetermineResult.doThing'], 'Yes') #map doThing and check the value
-    steps:
-    - script: echo "Job AB1 ran and doThing is Yes."
+    - script: echo I did a thing
+      condition: and(succeeded(), ${{ eq(parameters.doThing, true) }})
     
