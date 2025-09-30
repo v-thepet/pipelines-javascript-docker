@@ -1,4 +1,4 @@
-# Sample Docker and Kubernetes Node.JS app
+# Sample Docker and Kubernetes Node.JS app GAH
 
 Still trying. This code sample uses the Node.js web framework Express to create a basic web server that listens for HTTP requests on port 8080.
 
@@ -36,6 +36,7 @@ Privacy information can be found at https://privacy.microsoft.com/en-us/
 
 Microsoft and any contributors reserve all other rights, whether under their respective copyrights, patents,
 or trademarks, whether by implication, estoppel or otherwise.
+
 
 
 
