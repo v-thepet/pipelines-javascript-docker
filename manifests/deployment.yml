@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: vthepetpipelinesjavascriptdocker 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vthepetpipelinesjavascriptdocker
+  template:
+    metadata:
+      labels:
+        app: vthepetpipelinesjavascriptdocker 
+    spec:
+      containers:
+        - name: vthepetpipelinesjavascriptdocker 
+          image: myk8containerregistry.azurecr.io/vthepetpipelinesjavascriptdocker
+          ports:
+          - containerPort: 8080
