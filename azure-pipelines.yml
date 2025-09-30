@@ -68,7 +68,7 @@ stages:
             displayName: Create imagePullSecret
             inputs:
               action: createSecret
-              secretName: $(noidea)
+              secretName: $(imagePullSecret)
               dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
 
           - task: KubernetesManifest@1
@@ -79,7 +79,7 @@ stages:
                 $(Pipeline.Workspace)/manifests/deployment.yml
                 $(Pipeline.Workspace)/manifests/service.yml
               imagePullSecrets: |
-                $(imagePullSecret)
+                $(noidea)
               containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
 
