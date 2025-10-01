@@ -79,7 +79,7 @@ stages:
                 $(Pipeline.Workspace)/manifests/deployment.yml
                 $(Pipeline.Workspace)/manifests/service.yml
               imagePullSecrets: |
-                $(noidea)
+                $(imagePullSecret)
               containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
 
